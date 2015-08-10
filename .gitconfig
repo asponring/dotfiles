@@ -1,0 +1,7 @@
+[user]
+	name = Andy Sponring
+	email = andy@liftoff.io
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
