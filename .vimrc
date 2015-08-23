@@ -15,6 +15,12 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-classpath'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,7 +50,6 @@ if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file (restore to previous version)
-  set undofile		" keep an undo file (undo changes after closing)
 endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
@@ -197,6 +202,8 @@ augroup end
 
 " ----------------------------------------------- Mappings ---------------------------------------------------
 
+let mapleader=","
+
 " treat moving vertically on a wrapped line as two different lines
 nnoremap j gj
 nnoremap k gk
@@ -204,6 +211,7 @@ nnoremap k gk
 " custom shortcuts
 nnoremap <LEADER>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <LEADER>tl :TagbarToggle<CR>
+nnoremap <LEADER>tt :NERDTreeToggle<CR>
 
 
 " ------------------------------------------ Global Plugin Options -------------------------------------------
@@ -224,3 +232,62 @@ let g:rbpt_colorpairs = [
 
 " (tagbar)
 let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
+let g:tagbar_width=26                          " Default is 40, seems too wide
+
+" (nerdtree)
+let g:NERDTreeChDirMode=2                           " change pwd when NERDTree root changes
+let g:NERDChristmasTree=1                           " more colorful NERDTree
+
+" (ctrlp)
+let g:ctrlp_map = '<LEADER>f'
+let g:ctrlp_working_path_mode=2 " Search for files in repository with CtrlP
+let g:ctrlp_custom_ignore = '\.git$\|\.DS_Store$\|.*\.class$'
+
+" ---------------------------------------- Language-Specific Options -----------------------------------------
+
+" -- Clojure --
+augroup clojure
+  autocmd!
+  autocmd FileType clojure nnoremap <buffer> <LEADER>e :%Eval<CR>
+  autocmd FileType clojure nnoremap <buffer> <LEADER>E :Eval<CR>
+  autocmd FileType clojure nnoremap <buffer> <LEADER>F :CljFmt<CR>
+  autocmd FileType clojure setlocal omnifunc=fireplace#omnicomplete
+augroup END
+
+let g:ycm_semantic_triggers = {'clojure': ['(']}
+
+" indentation
+let g:clojure_align_multiline_strings = 0
+let g:clojure_fuzzy_indent = 1
+let g:clojure_fuzzy_indent_patterns = "with.*,def.*,let.*,send.*"
+let g:clojure_fuzzy_indent_patterns .= ",GET,POST,PUT,PATCH,DELETE,context"   " Compojure
+let g:clojure_fuzzy_indent_patterns .= ",clone-for"                           " Enlive
+let g:clojure_fuzzy_indent_patterns .= ",select,insert,update,delete,with.*"  " Korma
+let g:clojure_fuzzy_indent_patterns .= ",fact,facts"                          " Midje
+let g:clojure_fuzzy_indent_patterns .= ",up,down,table"                       " Lobos
+let g:clojure_fuzzy_indent_patterns .= ",entity"                              " Custom
+let g:clojure_fuzzy_indent_patterns .= ",check"                               " Custom
+
+" -- Coffeescript --
+augroup coffeescript
+  autocmd!
+  autocmd FileType coffeescript vnoremap <buffer> <LEADER>m :CoffeeCompile {20}<CR>
+augroup END
+
+" (tagbar)
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
