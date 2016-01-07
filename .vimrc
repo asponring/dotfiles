@@ -21,6 +21,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-classpath'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/paredit.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,18 +85,18 @@ if has("autocmd")
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+    au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+          \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
   augroup END
 
@@ -110,7 +111,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 if has('langmap') && exists('+langnoremap')
@@ -154,6 +155,11 @@ set nowritebackup                 " don't save backup files
 set noswapfile                    " don't create .swp files
 set foldlevel=99                  " open all folds by default
 
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 
 " ----------------------------------------- Colorscheme and Highlights ---------------------------------------
 
@@ -180,67 +186,68 @@ augroup trailing_whitespace
   autocmd BufWritePre * :%s/\s\+$//e
 augroup end
 
-" Restore cursor position
-function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
-augroup restore_cursor
-  autocmd!
-  autocmd BufReadPost * call ResCur()
-augroup end
+  " Restore cursor position
+  function! ResCur()
+    if line("'\"") <= line("$")
+      normal! g`"
+      return 1
+    endif
+  endfunction
+  augroup restore_cursor
+    autocmd!
+    autocmd BufReadPost * call ResCur()
+  augroup end
 
-augroup rainbow_parentheses
-  autocmd!
-  autocmd Filetype clojure RainbowParenthesesActivate
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
-augroup end
+    augroup rainbow_parentheses
+      autocmd!
+      autocmd Filetype clojure RainbowParenthesesActivate
+      autocmd Syntax * RainbowParenthesesLoadRound
+      autocmd Syntax * RainbowParenthesesLoadSquare
+      autocmd Syntax * RainbowParenthesesLoadBraces
+    augroup end
 
-" ----------------------------------------------- Mappings ---------------------------------------------------
+      " ----------------------------------------------- Mappings ---------------------------------------------------
 
-let mapleader=","
+      let mapleader=","
 
-" treat moving vertically on a wrapped line as two different lines
-nnoremap j gj
-nnoremap k gk
+      " treat moving vertically on a wrapped line as two different lines
+      nnoremap j gj
+      nnoremap k gk
 
-" custom shortcuts
-nnoremap <LEADER>cd :cd %:p:h<CR>:pwd<CR>
-nnoremap <LEADER>tl :TagbarToggle<CR>
-nnoremap <LEADER>tt :NERDTreeToggle<CR>
+      " custom shortcuts
+      nnoremap <LEADER>cd :cd %:p:h<CR>:pwd<CR>
+      nnoremap <LEADER>tl :TagbarToggle<CR>
+      nnoremap <LEADER>tt :NERDTreeToggle<CR>
 
 
-" ------------------------------------------ Global Plugin Options -------------------------------------------
-" (rainbow_parentheses)
-let g:rbpt_max = 10
-let g:rbpt_colorpairs = [
-    \ ['gray',      'HotPink1'],
-    \ ['darkred',   'cyan1'],
-    \ ['darkcyan',  'brown1'],
-    \ ['darkgreen', 'yellow1'],
-    \ ['darkblue',  'MediumOrchid'],
-    \ ['gray',      'DeepSkyBlue1'],
-    \ ['darkred',   'DarkOrange1'],
-    \ ['darkcyan',  'LimeGreen'],
-    \ ['darkgreen', 'goldenrod1'],
-    \ ['darkblue',  'RoyalBlue1'],
-    \ ]
+      " ------------------------------------------ Global Plugin Options -------------------------------------------
+      " (rainbow_parentheses)
+      let g:rbpt_max = 10
+      let g:rbpt_colorpairs = [
+            \ ['gray',      'HotPink1'],
+            \ ['darkred',   'cyan1'],
+            \ ['darkcyan',  'brown1'],
+            \ ['darkgreen', 'yellow1'],
+            \ ['darkblue',  'MediumOrchid'],
+            \ ['gray',      'DeepSkyBlue1'],
+            \ ['darkred',   'DarkOrange1'],
+            \ ['darkcyan',  'LimeGreen'],
+            \ ['darkgreen', 'goldenrod1'],
+            \ ['darkblue',  'RoyalBlue1'],
+            \ ]
 
-" (tagbar)
-let g:tagbar_iconchars = ['▸', '▾']
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
-let g:tagbar_width=26                          " Default is 40, seems too wide
+      " (tagbar)
+      let g:tagbar_iconchars = ['▸', '▾']
+      let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
+      let g:tagbar_width=26                          " Default is 40, seems too wide
 
-" (nerdtree)
-let g:NERDTreeChDirMode=2                           " change pwd when NERDTree root changes
-let g:NERDChristmasTree=1                           " more colorful NERDTree
+      " (nerdtree)
+      let g:NERDTreeChDirMode=2                           " change pwd when NERDTree root changes
+      let g:NERDChristmasTree=1                           " more colorful NERDTree
 
-" (ctrlp)
-let g:ctrlp_map = '<LEADER>f'
+      " (ctrlp)
+      let g:ctrlp_map = '<LEADER>f'
+      let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode=2 " Search for files in repository with CtrlP
 let g:ctrlp_custom_ignore = '\.git$\|\.DS_Store$\|.*\.class$'
 
