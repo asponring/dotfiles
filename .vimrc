@@ -22,6 +22,7 @@ Plugin 'tpope/vim-classpath'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/paredit.vim'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -160,6 +161,7 @@ set foldlevel=99                  " open all folds by default
 :command W w
 :command Q q
 
+:cd ~/Code/src/liftoff
 
 " ----------------------------------------- Colorscheme and Highlights ---------------------------------------
 
