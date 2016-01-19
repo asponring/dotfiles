@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/andysponring/.oh-my-zsh
 source ~/.liftoff_profile
+source ~/.shrc
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -50,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
 
 # User configuration
 
@@ -86,3 +87,4 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(rbenv init -)"
 HISTSIZE=1000
+SAVEHIST=1000
