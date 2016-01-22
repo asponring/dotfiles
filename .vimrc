@@ -23,6 +23,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

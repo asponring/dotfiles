@@ -1,7 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/andysponring/.oh-my-zsh
-source ~/.liftoff_profile
-source ~/.shrc
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
