@@ -86,3 +86,4 @@ source $ZSH/oh-my-zsh.sh
 eval "$(rbenv init -)"
 HISTSIZE=1000
 SAVEHIST=1000
+alias wcl="wc -l"
