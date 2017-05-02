@@ -25,6 +25,7 @@ Plugin 'vim-scripts/paredit.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
+Plugin 'dmac/vim-cljfmt'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,6 +66,7 @@ set incsearch		" do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
+map q <Nop>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -279,6 +281,8 @@ let g:clojure_fuzzy_indent_patterns .= ",fact,facts"                          " 
 let g:clojure_fuzzy_indent_patterns .= ",up,down,table"                       " Lobos
 let g:clojure_fuzzy_indent_patterns .= ",entity"                              " Custom
 let g:clojure_fuzzy_indent_patterns .= ",check"                               " Custom
+
+let g:cljfmt_on_save = 1
 
 " -- Coffeescript --
 augroup coffeescript
