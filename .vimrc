@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kchmck/vim-coffee-script'
@@ -222,7 +221,6 @@ augroup end
 
       " custom shortcuts
       nnoremap <LEADER>cd :cd %:p:h<CR>:pwd<CR>
-      nnoremap <LEADER>tl :TagbarToggle<CR>
       nnoremap <LEADER>tt :NERDTreeToggle<CR>
 
 
@@ -241,11 +239,6 @@ augroup end
             \ ['darkgreen', 'goldenrod1'],
             \ ['darkblue',  'RoyalBlue1'],
             \ ]
-
-      " (tagbar)
-      let g:tagbar_iconchars = ['▸', '▾']
-      let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
-      let g:tagbar_width=26                          " Default is 40, seems too wide
 
       " (nerdtree)
       let g:NERDTreeChDirMode=2                           " change pwd when NERDTree root changes
@@ -289,20 +282,3 @@ augroup coffeescript
   autocmd!
   autocmd FileType coffeescript vnoremap <buffer> <LEADER>m :CoffeeCompile {20}<CR>
 augroup END
-
-" (tagbar)
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
