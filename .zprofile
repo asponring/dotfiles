@@ -1,1 +1,0 @@
-source ~/.liftoff_profile

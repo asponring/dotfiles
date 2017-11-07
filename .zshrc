@@ -88,3 +88,5 @@ HISTSIZE=1000
 SAVEHIST=1000
 alias wcl="wc -l"
 alias g="git"
+
+source ~/.liftoff_profile
