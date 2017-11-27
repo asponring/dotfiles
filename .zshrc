@@ -88,3 +88,14 @@ HISTSIZE=1000
 SAVEHIST=1000
 alias wcl="wc -l"
 alias g="git"
+
+alias rs="sk; ANALYTICS_DB_HOST=$(psh -1 analytics-db-replica) \
+ANALYTICS_DB_ANNEX_HOST=$(psh -1 analytics-db-annex-standby) \
+ANALYTICS_DB_WING_HOST=$(psh -1 analytics-db-wing-standby) \
+ANALYTICS_DB_EXT_HOST=$(psh -1 analytics-db-ext-standby) \
+ANALYTICS_DB_ARM_HOST=$(psh -1 analytics-db-arm-standby) \
+ANALYTICS_DB_USER=ubuntu \
+COHORT_DB_HOST=$(psh -1 cohort-db-standby) \
+COHORT_DB_USER=ubuntu \
+ADOPS_CACHE=true \
+./bin/run_app.sh"
