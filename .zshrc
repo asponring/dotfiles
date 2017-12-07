@@ -99,3 +99,5 @@ COHORT_DB_HOST=$(psh -1 cohort-db-standby) \
 COHORT_DB_USER=ubuntu \
 ADOPS_CACHE=true \
 ./bin/run_app.sh"
+
+export PGDATABASE=postgres
