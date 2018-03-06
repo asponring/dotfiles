@@ -164,7 +164,7 @@ set foldlevel=99                  " open all folds by default
 :command W w
 :command Q q
 
-:cd ~/Code/src/liftoff
+:cd ~/src/liftoff
 
 " ----------------------------------------- Colorscheme and Highlights ---------------------------------------
 

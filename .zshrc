@@ -51,11 +51,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
 
-# User configuration
-
-#export PATH="/Users/andysponring/.rbenv/bin:/Users/andysponring/.rbenv/shims:/Users/andysponring/code/src/liftoff/ops/ansible-repo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/andysponring/code/src/liftoff/prospector/client/bin:/Users/andysponring/go/bin:/Users/andysponring/bin:/Users/andysponring/code/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
