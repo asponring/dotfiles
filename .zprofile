@@ -1,6 +1,7 @@
 export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 source "$HOME/src/liftoff/ops/credentials/developer.profile"
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 alias li="cd $REPOS/liftoff"
 alias sk="li; cd skipper/"
 alias pi="cd $REPOS/liftoff/postgres_db/pinpoint && psql pinpoint"
