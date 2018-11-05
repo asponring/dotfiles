@@ -1,3 +1,4 @@
+"set shell=zsh\ -l
 " --------------------------------------------- Vundle / Plugins ---------------------------------------------
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -251,6 +252,11 @@ let g:ctrlp_working_path_mode=2 " Search for files in repository with CtrlP
 let g:ctrlp_custom_ignore = '\.git$\|\.DS_Store$\|.*\.class$'
 
 " ---------------------------------------- Language-Specific Options -----------------------------------------
+
+"  -- Go --
+let g:go_fmt_command = "goimports"
+let g:go_fmt_options = "-local liftoff/"
+let g:go_search_bin_path_first = 0
 
 " -- Clojure --
 augroup clojure
