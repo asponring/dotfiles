@@ -1,4 +1,4 @@
 *.log
 *.json
 *.edn
-*min*.js
+*.min*.js
