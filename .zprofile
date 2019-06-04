@@ -21,14 +21,18 @@ alias idfa="grep -o -E '[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]
 alias wcl="wc -l"
 alias g="git"
 
-alias rs="sk; ANALYTICS_DB_HOST=$(psh -1 analytics-db-replica) \
-ANALYTICS_DB_ANNEX_HOST=$(psh -1 analytics-db-annex-standby) \
-ANALYTICS_DB_WING_HOST=$(psh -1 analytics-db-wing-standby) \
-ANALYTICS_DB_EXT_HOST=$(psh -1 analytics-db-ext-standby) \
-ANALYTICS_DB_ARM_HOST=$(psh -1 analytics-db-arm-standby) \
-ANALYTICS_DB_LEG_HOST=$(psh -1 analytics-db-leg-standby) \
+alias rs="sk; ANALYTICS_DB_HOST=analytics-db-replica.liftoff.io \
+ANALYTICS_DB_ANNEX_HOST=analytics-db-annex-standby.liftoff.io \
+ANALYTICS_DB_OLDANNEX_HOST=analytics-db-oldannex-primary.liftoff.io \
+ANALYTICS_DB_OLD2ANNEX_HOST=analytics-db-old2annex-primary.liftoff.io \
+ANALYTICS_DB_WING_HOST=analytics-db-wing-standby.liftoff.io \
+ANALYTICS_DB_EXT_HOST=analytics-db-ext-standby.liftoff.io \
+ANALYTICS_DB_ARM_HOST=analytics-db-arm-standby.liftoff.io \
+ANALYTICS_DB_PALM_HOST=analytics-db-palm-standby.liftoff.io \
 ANALYTICS_DB_USER=ubuntu \
-COHORT_DB_HOST=$(psh -1 cohort-db-standby) \
+ATTRIBUTION_DELAY_DB_HOST=attribution-delay-db-primary.liftoff.io \
+ATTRIBUTION_DELAY_DB_USER=ubuntu \
+COHORT_DB_HOST=cohort-db-standby.liftoff.io \
 COHORT_DB_USER=ubuntu \
 ADOPS_CACHE=true \
 ./bin/run_app.sh"
