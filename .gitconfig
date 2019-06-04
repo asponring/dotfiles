@@ -11,7 +11,7 @@
   pl = pull
   di = diff
   st = status
-  ci = commit
+  cm = commit
   co = checkout
   br = branch
   wc = whatchanged
