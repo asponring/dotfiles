@@ -8,6 +8,7 @@
 [core]
   editor = /usr/bin/vim
 [alias]
+  pl = pull
   di = diff
   st = status
   ci = commit
@@ -17,6 +18,7 @@
   cp = cherry-pick -x
   sm = submodule
   sh = stash
+  lo = log
   ol = log --oneline
   #rb = "!bash -c 'git rebase -i HEAD~$1' -"
   last = "!git log --oneline -n 1 --format='%H'"
