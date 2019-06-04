@@ -11,6 +11,7 @@
   pl = pull
   di = diff
   st = status
+  ad = add
   cm = commit
   co = checkout
   br = branch
