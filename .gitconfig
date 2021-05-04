@@ -23,3 +23,8 @@
   ol = log --oneline
   #rb = "!bash -c 'git rebase -i HEAD~$1' -"
   last = "!git log --oneline -n 1 --format='%H'"
+  com = checkout master
+  ps = push
+  mff = merge --ff-only
+  rem = rebase master
+  rei = rebase -i
