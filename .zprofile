@@ -1,7 +1,6 @@
-#export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 source "$HOME/src/liftoff/ops/credentials/developer.profile"
 export PATH="$PATH:/Applications/MacVim.app/Contents/bin"
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+#export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 eval "$(rbenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
