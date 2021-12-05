@@ -1,12 +1,14 @@
+export REPOS=$HOME/src
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 source "$HOME/src/liftoff/ops/credentials/developer.profile"
 export PATH="$PATH:/Applications/MacVim.app/Contents/bin"
 #export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-eval "$(rbenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init -)"
 export LIFTOFF_VENV_ROOT=~/.venv
 alias li="cd $REPOS/liftoff"
 alias sk="li; cd skipper/"
+alias bl="li; cd blixem/"
 alias h2="li; cd h2go/"
 alias ha="li; cd hawker/"
 alias pi="cd $REPOS/liftoff/postgres_db/pinpoint && psql pinpoint"
@@ -22,9 +24,10 @@ alias idfa="grep -o -E '[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]
 alias wcl="wc -l"
 alias g="git"
 alias clt="clj -A:liftoff:dev:test"
-alias cls="clojure -A:liftoff:dev -m"
-alias clr="clojure -A:liftoff:nrepl"
+alias cls="clj -A:liftoff:dev:test"
+alias clr="clj -A:liftoff:dev:nrepl"
 alias gt="go test ./..."
+alias gtv="gt -v"
 alias gb="go build"
 
 alias rs="sk; ANALYTICS_DB_HOST=analytics-db-replica.liftoff.io \
@@ -42,3 +45,5 @@ COHORT_DB_HOST=cohort-db-standby.liftoff.io \
 COHORT_DB_USER=ubuntu \
 ADOPS_CACHE=true \
 ./bin/run_app.sh"
+export ANDROID_SDK="$HOME/Library/Android/sdk"
+export PATH="$ANDROID_SDK/platform-tools:$PATH"
