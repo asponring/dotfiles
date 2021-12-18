@@ -1,10 +1,21 @@
-export REPOS=$HOME/src
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export REPOS=~/src
+
+# Postgres setup
+export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
+
+# Python setup
 export PYENV_ROOT="$HOME/.pyenv"
-eval "$(rbenv init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-source "$HOME/src/liftoff/ops/credentials/developer.profile"
-export PATH="$PATH:/Applications/MacVim.app/Contents/bin"
-export LIFTOFF_VENV_ROOT=~/.venv
+
+# Ruby setup
+eval "$(rbenv init -)"
+
+source $REPOS/liftoff/ops/credentials/developer.profile
+
+# Aliases
 alias li="cd $REPOS/liftoff"
 alias sk="li; cd skipper/"
 alias bl="li; cd blixem/"
@@ -15,11 +26,8 @@ alias rmi="$REPOS/liftoff/postgres_db/script/run_all_migrations.sh"
 alias re="cd $REPOS"
 alias mi="re; cd miscellany"
 alias ra="./bin/run_app.sh"
-export KAFKA_DIR=$REPOS/kafka
-alias gaid="grep -o -E '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'"
-alias idfa="grep -o -E '[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}'"
 alias wcl="wc -l"
-alias g="git"
+# alias g="git"
 alias clt="clj -A:liftoff:dev:test"
 alias cls="clj -A:liftoff:dev:test"
 alias clr="clj -A:liftoff:dev:nrepl"
@@ -27,5 +35,6 @@ alias gt="go test ./..."
 alias gtv="gt -v"
 alias gb="go build"
 
+# Android setup
 export ANDROID_SDK="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_SDK/platform-tools:$PATH"

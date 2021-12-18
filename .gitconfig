@@ -3,6 +3,8 @@
 	email = andy@liftoff.io
 [branch]
 	autosetuprebase = always
+[pull]
+	rebase = true
 [push]
 	default = simple
 [core]
@@ -21,7 +23,6 @@
   sh = stash
   lo = log
   ol = log --oneline
-  #rb = "!bash -c 'git rebase -i HEAD~$1' -"
   last = "!git log --oneline -n 1 --format='%H'"
   com = checkout master
   ps = push
