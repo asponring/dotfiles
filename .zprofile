@@ -2,7 +2,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export REPOS=~/src
 
 # Postgres setup
-export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
+#export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
+export PATH="$(brew --prefix)/opt/postgresql@10/bin:$PATH"
 
 # Python setup
 export PYENV_ROOT="$HOME/.pyenv"
