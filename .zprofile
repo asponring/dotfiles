@@ -3,7 +3,7 @@ export REPOS=~/src
 
 # Postgres setup
 #export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
-export PATH="$(brew --prefix)/opt/postgresql@10/bin:$PATH"
+#export PATH="$(brew --prefix)/opt/postgresql@10/bin:$PATH"
 
 # Python setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -22,8 +22,8 @@ alias sk="li; cd skipper/"
 alias bl="li; cd blixem/"
 alias h2="li; cd h2go/"
 alias ha="li; cd hawker/"
-alias pi="cd $REPOS/liftoff/postgres_db/pinpoint && psql pinpoint"
-alias rmi="$REPOS/liftoff/postgres_db/script/run_all_migrations.sh"
+alias pi="cd $REPOS/liftoff/postgresql/pinpoint && psql pinpoint"
+alias rmi="$REPOS/liftoff/postgresql/script/run_all_migrations.sh"
 alias re="cd $REPOS"
 alias mi="re; cd miscellany"
 alias ra="./bin/run_app.sh"
