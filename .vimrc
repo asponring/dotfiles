@@ -26,6 +26,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'fatih/vim-go'
 Plugin 'ervandew/supertab'
 Plugin 'dmac/vim-cljfmt'
+Plugin 'godlygeek/tabular'
+Plugin 'preservim/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -159,6 +161,7 @@ set nobackup                      " don't save backup files
 set nowritebackup                 " don't save backup files
 set noswapfile                    " don't create .swp files
 set foldlevel=99                  " open all folds by default
+set textwidth=80
 
 :command WQ wq
 :command Wq wq
