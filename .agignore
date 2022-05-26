@@ -1,5 +1,6 @@
 *.log
 *.json
+!*package.json
 *.edn
 *.min*.js
 *compiled*
