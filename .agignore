@@ -3,7 +3,4 @@
 !*package.json
 *.edn
 *.min*.js
-*compiled*
-*node_modules*
 *.js.map
-*target*

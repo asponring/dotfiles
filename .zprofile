@@ -1,9 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$(brew --prefix)/opt/postgresql@15/bin:$PATH"
 export REPOS=~/src
-
-# Postgres setup
-#export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
-#export PATH="$(brew --prefix)/opt/postgresql@10/bin:$PATH"
 
 # Python setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -39,4 +36,4 @@ alias gb="go build"
 
 # Android setup
 export ANDROID_SDK="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_SDK/platform-tools:$PATH"
+export PATH="$PATH:$ANDROID_SDK/platform-tools"
