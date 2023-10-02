@@ -1,6 +1,8 @@
 *.log
+*.csv
 *.json
 !*package.json
 *.edn
 *.min*.js
 *.js.map
+*_pb2.py
