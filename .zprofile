@@ -1,6 +1,6 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$(brew --prefix)/opt/postgresql@15/bin:$PATH"
 export REPOS=~/src
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="${REPOS}/liftoff/ops/script/git/tools:$(brew --prefix)/opt/postgresql@15/bin:$PATH"
 
 # Python setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -33,7 +33,6 @@ alias clr="clj -M:liftoff:dev:nrepl"
 alias gt="go test ./..."
 alias gtv="gt -v"
 alias gb="go build"
+alias lnt="lintoff ."
 
-# Android setup
-export ANDROID_SDK="$HOME/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_SDK/platform-tools"
+export PLOY_RUSH_BUILD="true"
