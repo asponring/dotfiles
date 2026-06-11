@@ -1,6 +1,7 @@
 export REPOS=~/src
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="${REPOS}/liftoff/ops/script/git/tools:$(brew --prefix)/opt/postgresql@15/bin:$PATH"
+#export PATH="${REPOS}/liftoff/ops/script/git/tools:$(brew --prefix)/opt/postgresql@15/bin:$PATH"
+export PATH="$HOME/.local/bin:$REPOS/liftoff/exp/andy:$(brew --prefix)/opt/postgresql@17/bin:$PATH"
 
 # Python setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -18,7 +19,7 @@ alias li="cd $REPOS/liftoff"
 alias sk="li; cd skipper/"
 alias bl="li; cd blixem/"
 alias h2="li; cd h2go/"
-alias ha="li; cd hawker/"
+alias ha="li; cd haggler/"
 alias pr="li; cd prospector/"
 alias pi="cd $REPOS/liftoff/postgresql/pinpoint && psql pinpoint"
 alias rmi="$REPOS/liftoff/postgresql/script/run_all_migrations.sh"

@@ -7,3 +7,5 @@
 *.js.map
 *_pb2.py
 *.ipynb
+*.pbk
+*swagger-ui-bundle.js

@@ -28,6 +28,7 @@ Plugin 'ervandew/supertab'
 Plugin 'dmac/vim-cljfmt'
 Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
+Plugin 'jjo/vim-cue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
