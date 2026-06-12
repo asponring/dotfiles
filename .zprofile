@@ -3,15 +3,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 #export PATH="${REPOS}/liftoff/ops/script/git/tools:$(brew --prefix)/opt/postgresql@15/bin:$PATH"
 export PATH="$HOME/.local/bin:$REPOS/liftoff/exp/andy:$(brew --prefix)/opt/postgresql@17/bin:$PATH"
 
-# Python setup
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
-# Ruby setup
-eval "$(rbenv init -)"
-
 source $REPOS/liftoff/ops/credentials/developer.profile
 
 # Aliases
